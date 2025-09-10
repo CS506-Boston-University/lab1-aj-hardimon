@@ -123,7 +123,7 @@ class Div:
     def evaluate(self, x_value):
         # TODO: Implement evaluation for division
         # Should return the quotient of the two operands (use integer division //)
-        return Int(self.p1.evaluate(0).i // self.p2.evaluate(0).i)
+        return Int(self.p1.evaluate(x_value).i // self.p2.evaluate(x_value).i)
 
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
@@ -142,6 +142,7 @@ print(Mul(Int(3), Int(5)).evaluate(0))
 print(Sub(Int(10), Int(3)).evaluate(0))
 print(Div(Int(15), Int(3)).evaluate(0))"""
 # print(Add(Mul(Int(2), X()), Mul(Int(3), X())).evaluate(2))
+print(Sub(Add(Mul(Int(2), X()), Int(3)), Div(X(), Int(2))).evaluate(4))
 poly = Add(Add(Int(4), Int(3)), Add(X(), Mul(Int(1), Add(Mul(X(), X()), Int(1)))))
 print("Original polynomial:", poly)
 
