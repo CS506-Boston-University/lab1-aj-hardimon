@@ -45,7 +45,7 @@ class Add:
     def evaluate(self, x_value):
         # TODO: Implement evaluation for addition
         # Should evaluate both operands and return their sum
-        return (Int( self.p1.evaluate(x_value).i + self.p2.evaluate(x_value).i ))
+        return Int(self.p1.evaluate(x_value).i + self.p2.evaluate(x_value).i)
 
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
@@ -71,7 +71,7 @@ class Mul:
     def evaluate(self, x_value):
         # TODO: Implement evaluation for multiplication
         # Should evaluate both operands and return their product
-        return Int( self.p1.evaluate(x_value).i * self.p2.evaluate(x_value).i )
+        return Int(self.p1.evaluate(x_value).i * self.p2.evaluate(x_value).i)
 
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
@@ -88,16 +88,16 @@ class Sub:
     def __repr__(self):
         if isinstance(self.p1, Add) or isinstance(self.p1, Sub):
             if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
-                return (f"( {self.p1} ) - ( {self.p2} )")
-            return (f"( {self.p1} ) - {self.p2}")
+                return f"( {self.p1} ) - ( {self.p2} )"
+            return f"( {self.p1} ) - {self.p2}"
         if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
-            return (f"{self.p1} - ( {self.p2} )")
-        return (f"{self.p1} - {self.p2}")
+            return f"{self.p1} - ( {self.p2} )"
+        return f"{self.p1} - {self.p2}"
 
     def evaluate(self, x_value):
         # TODO: Implement evaluation for subtraction
         # Should return the difference of the two operands
-        return Int( self.p1.evaluate(x_value).i - self.p2.evaluate(x_value).i )
+        return Int(self.p1.evaluate(x_value).i - self.p2.evaluate(x_value).i)
 
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
@@ -114,17 +114,16 @@ class Div:
     def __repr__(self):
         if isinstance(self.p1, Add) or isinstance(self.p1, Sub):
             if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
-                return (f"( {self.p1} ) / ( {self.p2} )")
-            return (f"( {self.p1} ) / {self.p2}")
+                return f"( {self.p1} ) / ( {self.p2} )"
+            return f"( {self.p1} ) / {self.p2}"
         if isinstance(self.p2, Add) or isinstance(self.p2, Sub):
-            return (f"{self.p1} / ( {self.p2} )")
-        return (f"{self.p1} / {self.p2}")
-
+            return f"{self.p1} / ( {self.p2} )"
+        return f"{self.p1} / {self.p2}"
 
     def evaluate(self, x_value):
         # TODO: Implement evaluation for division
         # Should return the quotient of the two operands (use integer division //)
-        return Int( self.p1.evaluate(0).i // self.p2.evaluate(0).i )
+        return Int(self.p1.evaluate(0).i // self.p2.evaluate(0).i)
 
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
@@ -142,7 +141,7 @@ print(Add(Int(3), Int(5)).evaluate(0))
 print(Mul(Int(3), Int(5)).evaluate(0))
 print(Sub(Int(10), Int(3)).evaluate(0))
 print(Div(Int(15), Int(3)).evaluate(0))"""
-#print(Add(Mul(Int(2), X()), Mul(Int(3), X())).evaluate(2))
+# print(Add(Mul(Int(2), X()), Mul(Int(3), X())).evaluate(2))
 poly = Add(Add(Int(4), Int(3)), Add(X(), Mul(Int(1), Add(Mul(X(), X()), Int(1)))))
 print("Original polynomial:", poly)
 
